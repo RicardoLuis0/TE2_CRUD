@@ -4,7 +4,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayDeque;
 
-import com.mysql.jdbc.Connection;
+import java.sql.Connection;
 
 /**
  * 
