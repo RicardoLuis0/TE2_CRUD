@@ -3,7 +3,7 @@ package com.ricardo.te2crud;
 import java.sql.SQLException;
 
 import javax.ws.rs.DefaultValue;
-import javax.ws.rs.FormParam;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -22,28 +22,28 @@ public class Products {
     @Path("search")
     @GET
 	@Produces(MediaType.APPLICATION_JSON)
-    public Response searchProducts(@FormParam("q") String query) throws SQLException {
+    public Response searchProducts(@QueryParam("q") String query) throws SQLException {
     	return Response.ok(db.searchProducts(query)).build();
     }
 
     @Path("add")
     @GET
 	@Produces(MediaType.APPLICATION_JSON)
-    public Response addProduct(@FormParam("name") String name,@FormParam("img_url") String img_url,@FormParam("short_description") String short_description,@FormParam("long_description") String long_description) throws SQLException {
+    public Response addProduct(@QueryParam("name") String name,@QueryParam("img_url") String img_url,@QueryParam("short_description") String short_description,@QueryParam("long_description") String long_description) throws SQLException {
     	return Response.ok(db.addProduct(new DBProduct(-1,name,img_url,short_description,long_description))).build();
     }
 
     @Path("get")
     @GET
 	@Produces(MediaType.APPLICATION_JSON)
-    public Response getProduct(@FormParam("id") int id) throws SQLException {
+    public Response getProduct(@QueryParam("id") int id) throws SQLException {
     	return Response.ok(db.getProduct(id)).build();
     }
 
     @Path("update")
     @GET
 	@Produces(MediaType.APPLICATION_JSON)
-    public Response updateProduct(@FormParam("id") int id,@DefaultValue("null") @FormParam("name") String name,@DefaultValue("null") @FormParam("img_url") String img_url,@DefaultValue("null") @FormParam("short_description") String short_description,@DefaultValue("null") @FormParam("long_description") String long_description) throws SQLException {
+    public Response updateProduct(@QueryParam("id") int id,@DefaultValue("null") @QueryParam("name") String name,@DefaultValue("null") @QueryParam("img_url") String img_url,@DefaultValue("null") @QueryParam("short_description") String short_description,@DefaultValue("null") @QueryParam("long_description") String long_description) throws SQLException {
     	DBProduct prod=db.getProduct(id);
     	if(prod!=null) {
     		boolean mod=false;
@@ -76,7 +76,7 @@ public class Products {
     @Path("remove")
     @GET
 	@Produces(MediaType.APPLICATION_JSON)
-    public Response removeProduct(@FormParam("id") int id) throws SQLException {
+    public Response removeProduct(@QueryParam("id") int id) throws SQLException {
     	return Response.ok(db.removeProduct(id)).build();
     }
 
