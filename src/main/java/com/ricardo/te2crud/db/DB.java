@@ -49,15 +49,19 @@ public class DB extends AbstractDB {
 	@Override
 	public DBProduct getProduct(int id) throws SQLException {
 		String sql="select id,name,img_url,short_description,long_description from Products where id = ? ";
-		return JDBCConnector.executeQuery((conn)->{
-			PreparedStatement stmt=conn.prepareStatement(sql);
-			stmt.setInt(1, id);
-			return stmt;
-		}, DBProduct.getter).get(0);
+		try {
+			return JDBCConnector.executeQuery((conn)->{
+				PreparedStatement stmt=conn.prepareStatement(sql);
+				stmt.setInt(1, id);
+				return stmt;
+			}, DBProduct.getter).get(0);
+		}catch(IndexOutOfBoundsException e) {
+			return null;
+		}
 	}
 
 	@Override
-	public DBProduct updateProduct(DBProduct prod) throws SQLException {
+	public boolean updateProduct(DBProduct prod) throws SQLException {
 		String sql="update products set name=?,img_url=?,short_description=?,long_desctiption=? where id=?";
 		if(JDBCConnector.executeUpdate((conn)->{
 			PreparedStatement stmt=conn.prepareStatement(sql);
@@ -68,9 +72,9 @@ public class DB extends AbstractDB {
 			stmt.setInt(5, prod.getId());
 			return stmt;
 		})>0) {
-			return prod;
+			return true;
 		}else {
-			return null;
+			return false;
 		}
 	}
 
