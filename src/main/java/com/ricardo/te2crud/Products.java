@@ -21,7 +21,7 @@ public class Products {
     @Path("add")
     @GET
 	@Produces(MediaType.APPLICATION_JSON)
-    public Response addProduct(@FormParam("name") String name,@FormParam("img_url") String img_url,@FormParam("description") String description) {//TODO
+    public Response addProduct(@FormParam("name") String name,@FormParam("img_url") String img_url,@FormParam("short_description") String short_description,@FormParam("long_description") String long_description) {//TODO
     	return Response.serverError().build();
     }
 
@@ -35,7 +35,7 @@ public class Products {
     @Path("update")
     @GET
 	@Produces(MediaType.APPLICATION_JSON)
-    public Response updateProduct(@FormParam("id") int id,@DefaultValue("null") @FormParam("name") String name,@DefaultValue("null") @FormParam("img_url") String img_url,@DefaultValue("null") @FormParam("description") String description) {//TODO
+    public Response updateProduct(@FormParam("id") int id,@DefaultValue("null") @FormParam("name") String name,@DefaultValue("null") @FormParam("img_url") String img_url,@DefaultValue("null") @FormParam("short_description") String short_description,@DefaultValue("null") @FormParam("long_description") String long_description) {//TODO
     	return Response.serverError().build();
     }
 
