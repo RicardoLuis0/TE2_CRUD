@@ -37,11 +37,23 @@ public class JDBCConnector{//template method pattern
 			ConnectionManager.returnConnection(conn);
 		}
 	}
-
+	
 	public static int executeUpdate(StatementBuilder builder) throws SQLException {
+		return executeUpdate(builder,false);
+	}
+
+	public static int executeUpdate(StatementBuilder builder,boolean return_key) throws SQLException {
 		Connection conn=ConnectionManager.retrieveConnection();
 		try(PreparedStatement stmt=builder.getStatement(conn)){
-			return stmt.executeUpdate();
+			if(return_key) {
+				if(stmt.executeUpdate()>0) {
+					return stmt.getGeneratedKeys().getInt(1);
+				}else {
+					return 0;
+				}
+			}else {
+				return stmt.executeUpdate();
+			}
 		}finally {
 			ConnectionManager.returnConnection(conn);
 		}
