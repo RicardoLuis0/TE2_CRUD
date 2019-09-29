@@ -47,7 +47,10 @@ public class JDBCConnector{//template method pattern
 		try(PreparedStatement stmt=builder.getStatement(conn)){
 			if(return_key) {
 				if(stmt.executeUpdate()>0) {
-					return stmt.getGeneratedKeys().getInt(1);
+					try(var keys=stmt.getGeneratedKeys()){
+						keys.next();
+						return keys.getInt(1);
+					}
 				}else {
 					return 0;
 				}
