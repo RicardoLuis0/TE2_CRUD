@@ -6,15 +6,15 @@ public class DBProduct {
 	public static final RSGetter<DBProduct> getter=(r)->new DBProduct(r.getInt(1),r.getString(2),r.getString(3),r.getString(4),r.getString(5));
 	private int id;
 	private String name;
-	private String img_url;
+	private String imgUrl;
 	private String shortDescription;
 	private String longDescription;
 	public DBProduct() {
 	}
-	public DBProduct(int id, String name, String img_url, String shortDescription, String longDescription) {
+	public DBProduct(int id, String name, String imgUrl, String shortDescription, String longDescription) {
 		this.id = id;
 		this.name = name;
-		this.img_url = img_url;
+		this.imgUrl = imgUrl;
 		this.shortDescription = shortDescription;
 		this.longDescription = longDescription;
 	}
@@ -30,11 +30,11 @@ public class DBProduct {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getImg_url() {
-		return img_url;
+	public String getImgUrl() {
+		return imgUrl;
 	}
-	public void setImg_url(String img_url) {
-		this.img_url = img_url;
+	public void setImg_url(String imgUrl) {
+		this.imgUrl = imgUrl;
 	}
 	public String getShortDescription() {
 		return shortDescription;
