@@ -29,7 +29,7 @@ public class JDBCConnector{//template method pattern
 		return result;
 	}
 
-	public final int executeUpdate(String sql) throws SQLException {
+	public static int executeUpdate(String sql) throws SQLException {
 		Connection conn=ConnectionManager.retrieveConnection();
 		try(Statement stmt=conn.createStatement()){
 			return stmt.executeUpdate(sql);
@@ -38,7 +38,7 @@ public class JDBCConnector{//template method pattern
 		}
 	}
 
-	public final int executeUpdate(StatementBuilder builder) throws SQLException {
+	public static int executeUpdate(StatementBuilder builder) throws SQLException {
 		Connection conn=ConnectionManager.retrieveConnection();
 		try(PreparedStatement stmt=builder.getStatement(conn)){
 			return stmt.executeUpdate();
@@ -47,7 +47,7 @@ public class JDBCConnector{//template method pattern
 		}
 	}
 
-	public final <T> ArrayList<T> executeQuery(String sql, RSGetter<T> getter) throws SQLException {
+	public static <T> ArrayList<T> executeQuery(String sql, RSGetter<T> getter) throws SQLException {
 		Connection conn=ConnectionManager.retrieveConnection();
 		try(Statement stmt=conn.createStatement()){
 			try(ResultSet rs=stmt.executeQuery(sql)){
@@ -58,7 +58,7 @@ public class JDBCConnector{//template method pattern
 		}
 	}
 
-	public final <T> ArrayList<T> executeQuery(StatementBuilder builder, RSGetter<T> getter) throws SQLException {
+	public static <T> ArrayList<T> executeQuery(StatementBuilder builder, RSGetter<T> getter) throws SQLException {
 		Connection conn=ConnectionManager.retrieveConnection();
 		try(PreparedStatement stmt=builder.getStatement(conn)){
 			try(ResultSet rs=stmt.executeQuery()){
