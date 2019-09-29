@@ -57,7 +57,7 @@ public class JDBCConnector{//template method pattern
 			}else {
 				return stmt.executeUpdate();
 			}
-		}finally {
+		} finally {
 			ConnectionManager.returnConnection(conn);
 		}
 	}

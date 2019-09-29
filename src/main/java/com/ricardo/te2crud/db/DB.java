@@ -62,7 +62,7 @@ public class DB extends AbstractDB {
 
 	@Override
 	public boolean updateProduct(DBProduct prod) throws SQLException {
-		String sql="update products set name=?,img_url=?,short_description=?,long_desctiption=? where id=?";
+		String sql="update products set name=?,img_url=?,short_description=?,long_description=? where id=?";
 		if(JDBCConnector.executeUpdate((conn)->{
 			PreparedStatement stmt=conn.prepareStatement(sql);
 			stmt.setString(1, prod.getName());
