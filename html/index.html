@@ -1,11 +1,11 @@
 <h1>Search</h1>
-<form>
+<form action='http://localhost:8080/api/products/search'>
 	<p><label for='query1'>Query: </label><input type=text name=q id=query1></input></p>
 	<p><input type=submit value=search></p>
 </form>
 
 <h1>Add</h1>
-<form>
+<form action='http://localhost:8080/api/products/add'>
 	<p><label for='name1'>Name: </label><input type=text name=name id=name1></input></p>
 	<p><label for='img_url1'>Image URL: </label><input type=text name=img_url id=img_url1></input></p>
 	<p><label for='short_description1'>Short Description: </label><input type=text name=short_description id=short_description1></input></p>
@@ -14,13 +14,13 @@
 </form>
 
 <h1>Get</h1>
-<form>
+<form action='http://localhost:8080/api/products/get'>
 	<p><label for='id1'>ID: </label><input type=text name=id id=id1></input></p>
 	<p><input type=submit value=get></p>
 </form>
 
 <h1>Update</h1>
-<form>
+<form action='http://localhost:8080/api/products/update'>
 	<p><label for='id2'>ID: </label><input type=text name=id id=id2></input></p>
 	<p><label for='name2'>Name: </label><input type=text name=name id=name2></input></p>
 	<p><label for='img_url2'>Image URL: </label><input type=text name=img_url id=img_url2></input></p>
@@ -30,7 +30,7 @@
 </form>
 
 <h1>Remove</h1>
-<form>
+<form action='http://localhost:8080/api/products/remove'>
 	<p><label for='id2'>ID: </label><input type=text name=id id=id2></input></p>
 	<p><input type=submit value=remove></p>
 </form>
