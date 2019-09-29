@@ -1,6 +1,9 @@
 package com.ricardo.te2crud.db.data;
 
+import com.ricardo.te2crud.jdbc.JDBCConnector.RSGetter;
+
 public class DBProduct {
+	public static final RSGetter<DBProduct> getter=(r)->new DBProduct(r.getInt(1),r.getString(2),r.getString(3),r.getString(4));
 	private int id;
 	private String name;
 	private String img_url;
