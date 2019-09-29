@@ -1,6 +1,8 @@
-drop database TE2Crud;
+drop database if exists TE2Crud;
 
 create database TE2Crud;
+
+use TE2Crud;
 
 create table Products (
 	id int not null,
