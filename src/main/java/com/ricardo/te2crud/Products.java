@@ -68,7 +68,6 @@ public class Products {
     				return Response.ok(null).build();
     			}
     		}
-    		
     	}
     	return Response.ok(prod).build();
     }
