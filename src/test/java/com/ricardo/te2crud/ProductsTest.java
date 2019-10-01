@@ -19,7 +19,8 @@ public class ProductsTest {
     @Before
     public void setUp() throws Exception {
         // start the server
-        server = Main.startServer();
+        server = Main.newServer();
+        server.start();
         // create the client
         Client c = ClientBuilder.newClient();
 

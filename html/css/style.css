@@ -101,7 +101,7 @@ a{
 }
 
 .contentwrap {
-    width: 850px;
+    width: 1000px;
     float: left;
     margin: 0 auto;
 }
@@ -113,16 +113,19 @@ a{
     margin: 5px;
 }
 
-.leftcolumnwrap {
-    width: 150px;
-    float: left;
-    margin: 0 auto;
+/* from https://www.w3schools.com/howto/howto_css_loader.asp */
+
+.loading {
+	border: 4px solid #e0e0e0;
+	border-top: 4px solid #474747;
+	border-radius: 50%;
+	width: 16px;
+	height: 16px;
+	animation: spin 2s linear infinite;
+	margin: 20px auto;
 }
 
-.leftcolumn {
-    background: #33CCFF;
-    border-radius: 10px;
-    border: 1px solid #1fb8eb;
-    margin: 5px;
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
 }
-
