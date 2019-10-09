@@ -14,7 +14,7 @@ import com.ricardo.te2crud.db.AbstractDB;
 import com.ricardo.te2crud.db.DB;
 import com.ricardo.te2crud.db.data.DBProduct;
 
-@Path("api/products")
+@Path("products")
 public class Products {
 	
 	public static AbstractDB db=new DB();
