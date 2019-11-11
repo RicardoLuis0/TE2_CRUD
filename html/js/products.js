@@ -47,13 +47,13 @@ export default class Product {
         });
     }
 
-	static display(arr,element){
+	static display(arr,element,pre=""){
 		if(arr.length==0){
-			element.innerHTML="<h2>Nenhum Produto</h2>";
+			element.innerHTML=pre+"<h2>Nenhum Produto</h2>";
 		}else{
-			content.innerHTML="";
+			content.innerHTML=pre;
 			for(let product of arr){
-				element.innerHTML+="<div class='productbox'><div class='centerimg'><a href='produto.html?id="+product.id+"'><img src='"+product.imgUrl+"'class='productimg'></img></div><h4>"+product.name+"</h4></a><p>"+product.shortDescription+"</p></div>";
+				element.innerHTML+="<div class='productbox'><div class='centerflex'><a href='produto.html?id="+product.id+"'><img src='"+product.imgUrl+"'class='productimg'></img></div><h4>"+product.name+"</h4></a><p>"+product.shortDescription+"</p></div>";
 			}
 		}
 	}

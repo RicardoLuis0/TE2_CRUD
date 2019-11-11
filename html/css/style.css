@@ -133,6 +133,9 @@ a{
     border-radius: 10px;
     border: 1px solid #ebebeb;
     margin: 5px;
+}
+
+.contentflex {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -162,6 +165,7 @@ a{
 	height:300px;
 	display:block;
 	margin:20px;
+	padding:10px;
 }
 
 .productimg {
@@ -171,8 +175,7 @@ a{
 	height:auto;
 }
 
-.centerimg {
-	padding:10px;
+.centerflex {
 	display: flex;
 	justify-content: center;
 	align-items: center;
