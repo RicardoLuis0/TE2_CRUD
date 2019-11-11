@@ -18,6 +18,8 @@ import com.ricardo.te2crud.db.data.DBProduct;
 public class Products {
 	
 	public static AbstractDB db=new DB();
+	
+	public static final String key="PASSWORD";
 
     @Path("search")
     @GET
@@ -29,7 +31,8 @@ public class Products {
     @Path("add")
     @GET
 	@Produces(MediaType.APPLICATION_JSON)
-    public Response addProduct(@QueryParam("name") String name,@QueryParam("img_url") String img_url,@QueryParam("short_description") String short_description,@QueryParam("long_description") String long_description) throws SQLException {
+    public Response addProduct(@QueryParam("key") String c_key,@QueryParam("name") String name,@QueryParam("img_url") String img_url,@QueryParam("short_description") String short_description,@QueryParam("long_description") String long_description) throws SQLException {
+    	if(!c_key.equals(key))return Response.serverError().build();
     	return Response.ok(db.addProduct(new DBProduct(-1,name,img_url,short_description,long_description))).build();
     }
 
@@ -43,7 +46,8 @@ public class Products {
     @Path("update")
     @GET
 	@Produces(MediaType.APPLICATION_JSON)
-    public Response updateProduct(@QueryParam("id") int id,@DefaultValue("null") @QueryParam("name") String name,@DefaultValue("null") @QueryParam("img_url") String img_url,@DefaultValue("null") @QueryParam("short_description") String short_description,@DefaultValue("null") @QueryParam("long_description") String long_description) throws SQLException {
+    public Response updateProduct(@QueryParam("key") String c_key,@QueryParam("id") int id,@DefaultValue("null") @QueryParam("name") String name,@DefaultValue("null") @QueryParam("img_url") String img_url,@DefaultValue("null") @QueryParam("short_description") String short_description,@DefaultValue("null") @QueryParam("long_description") String long_description) throws SQLException {
+    	if(!c_key.equals(key))return Response.serverError().build();
     	DBProduct prod=db.getProduct(id);
     	if(prod!=null) {
     		boolean mod=false;
@@ -75,7 +79,8 @@ public class Products {
     @Path("remove")
     @GET
 	@Produces(MediaType.APPLICATION_JSON)
-    public Response removeProduct(@QueryParam("id") int id) throws SQLException {
+    public Response removeProduct(@QueryParam("key") String c_key,@QueryParam("id") int id) throws SQLException {
+    	if(!c_key.equals(key))return Response.serverError().build();
     	return Response.ok(db.removeProduct(id)).build();
     }
 
