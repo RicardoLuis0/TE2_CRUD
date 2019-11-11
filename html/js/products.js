@@ -20,7 +20,6 @@ export default class Product {
         ajax.sendGET(url+"get",{
             "id":id
         },function(){
-            console.log("responseText: "+this.responseText);
             var prod=JSON.parse(this.responseText);
             callback(new Product(prod.id,prod.name,prod.imgUrl,prod.shortDescription,prod.longDescription));//ok
         },function(){
@@ -32,7 +31,6 @@ export default class Product {
         ajax.sendGET(url+"search",{
             "q":query
         },function(){
-            console.log("responseText: "+this.responseText);
             var json=JSON.parse(this.responseText);
             var arr=[];
             for(var key in json){

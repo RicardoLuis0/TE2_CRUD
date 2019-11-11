@@ -9,12 +9,25 @@ body {
 }
 
 p {
-    padding: 10px;
+  display: block;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 h1 {
+	display: block;
 	font-size: 2em;
 	font-weight: bolder;
+}
+h4 {
+	display: block;
+	font-size: 1em;
+	margin-left: 0;
+	margin-right: 0;
+	font-weight: bold;
+	text-align: center;
 }
 
 .wrapper {
@@ -111,6 +124,9 @@ a{
     border-radius: 10px;
     border: 1px solid #ebebeb;
     margin: 5px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
 /* from https://www.w3schools.com/howto/howto_css_loader.asp */
@@ -128,4 +144,27 @@ a{
 @keyframes spin {
 	0% { transform: rotate(0deg); }
 	100% { transform: rotate(360deg); }
+}
+
+.productbox {
+    border: 1px solid #ebebeb;
+    border-radius: 10px;
+	width:200px;
+	height:300px;
+	display:block;
+	margin:20px;
+}
+
+.productimg {
+	max-width:180px;
+	max-height:180px;
+	width:auto;
+	height:auto;
+}
+
+.centerimg {
+	padding:10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
