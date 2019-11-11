@@ -4,7 +4,7 @@ function sendAJAX(url,type,data,callbackOk,callbackFail){
 	console.log("type="+type);
 	console.log("data="+data);
 	try{
-		var request = new XMLHttpRequest();
+		let request = new XMLHttpRequest();
 		request.addEventListener("load",callbackOk);
 		request.addEventListener("abort",callbackFail);
 		request.addEventListener("error",callbackFail);
@@ -26,8 +26,8 @@ function sendAJAX(url,type,data,callbackOk,callbackFail){
 
 //decode assoc array as url encoded parameters
 function decodeData(data){
-	var output="?";
-	for(var key in data){
+	let output="?";
+	for(let key in data){
 		if(output.length>1){
 			output+="&";
 		}

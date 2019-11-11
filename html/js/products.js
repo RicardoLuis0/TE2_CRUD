@@ -20,7 +20,7 @@ export default class Product {
         ajax.sendGET(url+"get",{
             "id":id
         },function(){
-            var prod=JSON.parse(this.responseText);
+            let prod=JSON.parse(this.responseText);
             callback(new Product(prod.id,prod.name,prod.imgUrl,prod.shortDescription,prod.longDescription));//ok
         },function(){
             callback(null);//failed
@@ -31,16 +31,30 @@ export default class Product {
         ajax.sendGET(url+"search",{
             "q":query
         },function(){
-            var json=JSON.parse(this.responseText);
-            var arr=[];
-            for(var key in json){
-                var prod=json[key];
-                arr.push(new Product(prod.id,prod.name,prod.imgUrl,prod.shortDescription,prod.longDescription));//ok
-            }
-            callback(arr);
+			let arr=[];
+            try{
+				let json=JSON.parse(this.responseText);
+				for(let key in json){
+					let prod=json[key];
+					arr.push(new Product(prod.id,prod.name,prod.imgUrl,prod.shortDescription,prod.longDescription));//ok
+				}
+            }catch(e){
+				arr=[];
+			}
+			callback(arr);
         },function(){
             callback([]);//failed
         });
     }
 
+	static display(arr,element){
+		if(arr.length==0){
+			element.innerHTML="<h2>Nenhum Produto</h2>";
+		}else{
+			content.innerHTML="";
+			for(let product of arr){
+				element.innerHTML+="<div class='productbox'><div class='centerimg'><a href='produto.html?id="+product.id+"'><img src='"+product.imgUrl+"'class='productimg'></img></div><h4>"+product.name+"</h4></a><p>"+product.shortDescription+"</p></div>";
+			}
+		}
+	}
 }
