@@ -1,0 +1,4 @@
+<Files form.html>
+	Order deny,allow
+	Deny from all
+</Files>
