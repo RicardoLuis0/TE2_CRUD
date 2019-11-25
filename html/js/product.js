@@ -9,7 +9,7 @@ window.onload=()=>{
 			if(product===null){
 				content.innerHTML=error;
 			}else{
-				content.innerHTML="<h2 style='text-align:center;'>"+product.name+"</h2><div class='prod'><div class='prodleft'><img src='"+product.imgUrl+"'></div><div class='prodright'><p>"+product.longDescription+"</p></div></div>";
+				content.innerHTML="<div class='prod'><div class='prodleft'><img src='"+product.imgUrl+"'></div><div class='prodright'><h2 style='text-align:center;'>"+product.name+"</h2><p>"+product.longDescription+"</p></div></div>";
 			}
 		});
 	}else{
